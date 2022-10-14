@@ -1,14 +1,14 @@
 # Design System - Rocketseat - Modulo 05
 
-- [] Text
-- [] Heading
-- [] Box
-- [] Button
-- [] TextInput
-- [] TextArea
-- [] Checkbox
-- [] Avatar
-- [] Multistep
+- [x] Text
+- [x] Heading
+- [x] Box
+- [x] Button
+- [x] TextInput
+- [x] TextArea
+- [x] Checkbox
+- [x] Avatar
+- [x] Multistep
 
 ## Comands
 
