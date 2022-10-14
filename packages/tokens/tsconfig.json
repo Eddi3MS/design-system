@@ -1,4 +1,4 @@
 {
-  "extends": "@ems/ts-config/base.json",
+  "extends": "@ems-ignite/ts-config/base.json",
   "include": ["src"]
 }

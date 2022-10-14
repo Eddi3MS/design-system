@@ -6,7 +6,7 @@ import {
   lineHeights,
   radii,
   space,
-} from '@ems/tokens'
+} from '@ems-ignite/tokens'
 import { createStitches, defaultThemeMap } from '@stitches/react'
 
 export const {

@@ -1,4 +1,4 @@
-import { colors } from '@ems/tokens'
+import { colors } from '@ems-ignite/tokens'
 import { getContrast } from 'polished'
 
 function textColorContrast(color: string) {

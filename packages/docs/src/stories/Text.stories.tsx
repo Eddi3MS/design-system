@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Text, TextProps } from '@ems/react'
+import { Text, TextProps } from '@ems-ignite/react'
 
 export default {
   title: 'Typography/Text',

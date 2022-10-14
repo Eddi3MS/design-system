@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Text, TextArea, TextAreaProps } from '@ems/react'
+import { Box, Text, TextArea, TextAreaProps } from '@ems-ignite/react'
 
 export default {
   title: 'Form/Text Area',

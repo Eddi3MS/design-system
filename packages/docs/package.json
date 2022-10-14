@@ -1,5 +1,5 @@
 {
-  "name": "@ems/docs",
+  "name": "@ems-ignite/docs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -27,10 +27,10 @@
     "vite": "^3.1.4"
   },
   "dependencies": {
-    "@ems/eslint-config": "*",
-    "@ems/react": "*",
-    "@ems/tokens": "*",
-    "@ems/ts-config": "*",
+    "@ems-ignite/eslint-config": "*",
+    "@ems-ignite/react": "*",
+    "@ems-ignite/tokens": "*",
+    "@ems-ignite/ts-config": "*",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-docs": "^6.5.12",
     "phosphor-react": "^1.4.1",
