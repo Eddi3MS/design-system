@@ -37,6 +37,9 @@ export default {
     children: {
       description:
         'Children pode ser o texto do botão ou um component jsx (com icones).',
+      control: {
+        type: null,
+      },
     },
   },
 } as Meta<ButtonProps>
