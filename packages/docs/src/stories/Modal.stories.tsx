@@ -10,6 +10,8 @@ import {
   ModalWrapper,
   Button,
   Text,
+  ModalHeader,
+  ModalActions,
 } from '@ems-ignite/react'
 
 export default {
@@ -34,10 +36,16 @@ const Template: Story<ModalProps> = (args) => {
       <ModalTrigger asChild>
         <Button>Open Modal</Button>
       </ModalTrigger>
-      <ModalWrapper>
+      <ModalWrapper width={400}>
+        <ModalHeader title={'Titulo'} />
         <ModalContent>
           <Text>Hello World!</Text>
         </ModalContent>
+        <ModalActions
+          rightClick={() => {}}
+          leftClick={() => {}}
+          justifyContent={'space-between'}
+        />
       </ModalWrapper>
     </ModalComponent>
   )

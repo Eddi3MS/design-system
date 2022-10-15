@@ -64,6 +64,7 @@ export const Button = styled('button', {
 
         '&:not(:disabled):hover': {
           color: '$white',
+          backgroundColor: '$gray600',
         },
 
         '&:disabled': {
@@ -73,6 +74,11 @@ export const Button = styled('button', {
     },
 
     size: {
+      square: {
+        padding: 0,
+        minWidth: 32,
+        maxHeight: 32,
+      },
       sm: {
         minWidth: 80,
       },
