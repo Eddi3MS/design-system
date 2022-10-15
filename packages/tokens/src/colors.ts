@@ -20,4 +20,6 @@ export const colors = {
   warning: '#e5b800',
   info: '#0063f7',
   success: '#319800',
+
+  teste: '#fff',
 }
