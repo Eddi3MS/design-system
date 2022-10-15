@@ -1,5 +1,11 @@
 # @ems-ignite/tokens
 
+## 3.0.1
+
+### Patch Changes
+
+- update color
+
 ## 3.0.0
 
 ### Major Changes
