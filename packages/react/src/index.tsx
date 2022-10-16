@@ -8,5 +8,6 @@ export * from './components/TextArea'
 export * from './components/MultiStep'
 
 export * from './components/Modal'
+export * from './components/Tabs'
 
 export * from './components/Checkbox'

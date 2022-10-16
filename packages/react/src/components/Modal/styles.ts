@@ -67,6 +67,8 @@ export const Wrapper = styled(DialogPrimitive.Content, {
 
 export const Content = styled('div', {
   padding: '$8',
+  minHeight: '$$minHeight',
+  boxSizing: 'border-box',
 })
 
 export const Header = styled('header', {

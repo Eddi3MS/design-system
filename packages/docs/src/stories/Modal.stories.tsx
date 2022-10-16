@@ -3,15 +3,10 @@ import { useArgs } from '@storybook/client-api'
 import React from 'react'
 
 import {
-  Modal as ModalComponent,
-  ModalContent,
-  ModalTrigger,
-  ModalProps,
-  ModalWrapper,
   Button,
+  Modal as ModalComponent,
+  ModalProps,
   Text,
-  ModalHeader,
-  ModalActions,
 } from '@ems-ignite/react'
 
 export default {
@@ -26,28 +21,30 @@ export default {
   args: {
     open: false,
     overlay: true,
+    width: 400,
+    title: 'Titulo',
+    justifyButtons: 'space-between',
   },
 } as Meta
 
 const Template: Story<ModalProps> = (args) => {
   const [, updateArgs] = useArgs()
   return (
-    <ModalComponent {...args} onOpenChange={(open) => updateArgs({ open })}>
-      <ModalTrigger asChild>
-        <Button>Open Modal</Button>
-      </ModalTrigger>
-      <ModalWrapper width={400}>
-        <ModalHeader title={'Titulo'} />
-        <ModalContent>
-          <Text>Hello World!</Text>
-        </ModalContent>
-        <ModalActions
-          rightClick={() => {}}
-          leftClick={() => {}}
-          justifyContent={'space-between'}
-        />
-      </ModalWrapper>
-    </ModalComponent>
+    <>
+      <Button variant={'secondary'} onClick={() => updateArgs({ open: true })}>
+        Open Modal
+      </Button>
+      <ModalComponent
+        {...args}
+        onOpenChange={(open) => updateArgs({ open })}
+        leftClick={() => updateArgs({ open: false })}
+      >
+        <Text>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam facere
+          unde asperiores!
+        </Text>
+      </ModalComponent>
+    </>
   )
 }
 
