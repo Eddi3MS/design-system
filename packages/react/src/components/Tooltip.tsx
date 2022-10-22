@@ -60,11 +60,11 @@ const StyledArrow = styled(TooltipPrimitive.Arrow, {
   fill: '$$bg',
 })
 
-export interface ITooltipProps extends ComponentProps<typeof StyledTooltip> {
+interface ITooltipRootProps extends ComponentProps<typeof StyledTooltip> {
   children: ReactNode | ReactNode[]
 }
 
-export function Tooltip({ children, delayDuration }: ITooltipProps) {
+function TooltipRoot({ children, delayDuration }: ITooltipRootProps) {
   return (
     <TooltipPrimitive.Provider delayDuration={delayDuration}>
       <StyledTooltip>{children}</StyledTooltip>
@@ -72,23 +72,18 @@ export function Tooltip({ children, delayDuration }: ITooltipProps) {
   )
 }
 
-export interface ITooltipTrigger extends ComponentProps<typeof StyledTrigger> {}
+interface ITooltipTrigger extends ComponentProps<typeof StyledTrigger> {}
 
-export function TooltipTrigger({ children }: ITooltipTrigger) {
+function TooltipTrigger({ children }: ITooltipTrigger) {
   return <StyledTrigger asChild>{children}</StyledTrigger>
 }
 
-export interface ITooltipContentProps
-  extends ComponentProps<typeof StyledContent> {
-  children: ReactNode
+interface ITooltipContentProps extends ComponentProps<typeof StyledContent> {
+  children: ReactNode | ReactNode[]
   bg: string
 }
 
-export function TooltipContent({
-  children,
-  bg,
-  ...props
-}: ITooltipContentProps) {
+function TooltipContent({ children, bg, ...props }: ITooltipContentProps) {
   return (
     <TooltipPrimitive.Portal>
       <StyledContent
@@ -106,5 +101,24 @@ export function TooltipContent({
         />
       </StyledContent>
     </TooltipPrimitive.Portal>
+  )
+}
+
+export interface ITooltipProps extends ITooltipRootProps, ITooltipContentProps {
+  bg: string
+  content: ReactNode | ReactNode[]
+}
+
+export function Tooltip({
+  children,
+  content,
+  delayDuration,
+  ...rest
+}: ITooltipProps) {
+  return (
+    <TooltipRoot delayDuration={delayDuration}>
+      <TooltipTrigger>{children}</TooltipTrigger>
+      <TooltipContent {...rest}>{content}</TooltipContent>
+    </TooltipRoot>
   )
 }
