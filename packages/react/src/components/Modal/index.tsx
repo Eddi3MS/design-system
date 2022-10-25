@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react'
+import React, { ComponentProps, ReactNode } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { Content, Footer, Header, Overlay, Wrapper } from './styles'
 import { X } from 'phosphor-react'
@@ -9,20 +9,18 @@ export type ModalProps = ComponentProps<typeof DialogPrimitive.Root> & {
   width: number
   maintainDimensions: boolean
   title: string
-  rightClick: () => void
-  leftClick: () => void
-  justifyButtons: string
+  justifyButtons: 'flex-end' | 'center' | 'space-between' | 'flex-start'
+  footer: ReactNode
 }
 
 export function Modal({
   children,
+  footer,
   overlay = true,
-  width = 700,
+  width = 400,
   maintainDimensions = false,
   title,
-  rightClick,
-  leftClick,
-  justifyButtons = 'flex-end',
+  justifyButtons = 'space-between',
   ...rest
 }: ModalProps) {
   return (
@@ -50,30 +48,17 @@ export function Modal({
         </Header>
         <Content
           css={{
-            $$minHeight: `${width / 2}px`,
+            $$minHeight: `${width / 3}px`,
           }}
         >
           {children}
         </Content>
 
-        <Footer css={{ $$justifyContent: `${justifyButtons}` }}>
-          <Button
-            onClick={leftClick}
-            size={'md'}
-            variant={'tertiary'}
-            css={{ maxHeight: 40 }}
-          >
-            CANCELAR
-          </Button>
-          <Button
-            onClick={rightClick}
-            size={'md'}
-            variant={'primary'}
-            css={{ maxHeight: 40 }}
-          >
-            SALVAR
-          </Button>
-        </Footer>
+        {footer && (
+          <Footer css={{ $$justifyContent: `${justifyButtons}` }}>
+            {footer}
+          </Footer>
+        )}
       </Wrapper>
     </DialogPrimitive.Root>
   )

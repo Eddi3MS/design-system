@@ -80,23 +80,27 @@ function TooltipTrigger({ children }: ITooltipTrigger) {
 
 interface ITooltipContentProps extends ComponentProps<typeof StyledContent> {
   children: ReactNode | ReactNode[]
-  bg: string
+  bg?: string
 }
 
-function TooltipContent({ children, bg, ...props }: ITooltipContentProps) {
+function TooltipContent({
+  children,
+  bg = '#000',
+  ...props
+}: ITooltipContentProps) {
   return (
     <TooltipPrimitive.Portal>
       <StyledContent
         {...props}
         css={{
-          $$bg: `${bg || 'white'}`,
-          $$color: textColorContrast(bg || 'white'),
+          $$bg: `${bg}`,
+          $$color: textColorContrast(bg),
         }}
       >
         {children}
         <StyledArrow
           css={{
-            $$bg: `${bg || 'white'}`,
+            $$bg: `${bg}`,
           }}
         />
       </StyledContent>
