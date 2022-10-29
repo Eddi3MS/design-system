@@ -11,4 +11,7 @@ export * from './components/Modal'
 export * from './components/Tabs'
 export * from './components/Tooltip'
 
+export * from './components/Toast'
+export * from './context/ToastProvider'
+
 export * from './components/Checkbox'
