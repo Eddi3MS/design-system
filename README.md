@@ -9,27 +9,27 @@
 - [x] Checkbox
 - [x] Avatar
 - [x] Multistep
+- [x] Toast
+- [x] Tooltip
 
-## Comands
+## Rodando no seu local
 
-- npm init -y (cria um package.json)
-- npm i -D typescript (instala o typescript)
-- npx tsc --init (cria o tsconfig.json)
-- px tsc (transpila os arquivos .ts para .js)
+- Clone o repositorio na sua maquina
 
-- npm i -D react @types/react @types/react-dom
-  (react -D, em prod quem instalar a lib, já vai ter react.)
+```
+git clone https://github.com/Eddi3MS/design-system.git
+```
 
-- npx sb init --builder @storybook/builder-vite --type react --use-npm
+- instale as dependências
 
-### turborepo adicionado
+```
+npm i
+```
 
-- npm rum dev (na raiz do monorepo realizara todos os builds --watch dos packages)
+- Para iniciar a aplicação localmente rode o comando abaixo na raiz do projeto (fora da pasta packages)
 
-#### util
+```
+npm run dev
+```
+realizará todos os builds e fará o watch dos packages, dando refresh em caso de mudanças
 
-- f1 + restart ts server => bug de types
-
-## cli deploy
-
-- npm i @storybook/storybook-deployer --save-dev
