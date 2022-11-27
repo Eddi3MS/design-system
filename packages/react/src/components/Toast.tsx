@@ -1,7 +1,7 @@
 import * as ToastPrimitive from '@radix-ui/react-toast'
 import { X } from 'phosphor-react'
-import { ComponentProps } from 'react'
 import { keyframes, styled } from '../styles'
+import { ComponentProps } from '../types/ComponentProps'
 import { Button } from './Button'
 import { Heading } from './Heading'
 import { Text } from './Text'

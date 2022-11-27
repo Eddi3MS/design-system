@@ -35,7 +35,7 @@ export default {
       },
     },
     sideOffset: {
-      description: 'Seleciona a distancia do tooltip e o trigger',
+      description: 'Seleciona a distancia entre o tooltip e o trigger',
       options: [5, 10, 20],
       control: {
         type: 'inline-radio',

@@ -19,7 +19,7 @@ export type Position =
   | 'bottom-center'
 
 export interface IToast {
-  title?: string
+  title: string
   content: string
 }
 
@@ -43,7 +43,7 @@ const ToastProvider = ({
   position = 'top-right',
   duration = 2000,
 }: ToastContextProps) => {
-  const [toasts, setToasts] = useState(new Map())
+  const [toasts, setToasts] = useState(new Map<string, IToast>())
 
   const handleAddToast = useCallback((toast: IToast) => {
     setToasts((prev) => {
@@ -87,14 +87,13 @@ const ToastProvider = ({
         duration={duration}
         swipeDirection={handleDirection}
       >
-        {Array.from(toasts).map(([key, { content, ...rest }]) => (
+        {Array.from(toasts).map(([key, toast]) => (
           <Toast
             onOpenChange={(open) => {
               if (!open) handleRemoveToast(key)
             }}
             key={key}
-            content={content}
-            {...rest}
+            {...toast}
           />
         ))}
 

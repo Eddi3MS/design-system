@@ -1,22 +1,18 @@
-import { IToastProps, Toast, ToastProvider, useToast } from '@ems-ignite/react'
+import {
+  Button,
+  IToastProps,
+  Toast,
+  ToastProvider,
+  useToast,
+} from '@ems-ignite/react'
 import { Story, Meta } from '@storybook/react'
-
-const buttonStyles = {
-  border: ' 2px solid #fff',
-  borderRadius: '4px',
-  padding: '.5rem 1rem',
-  color: '#fff',
-  fontWeight: '700',
-  backgroundColor: 'transparent',
-  cursor: 'pointer',
-}
 
 export default {
   title: 'POPUPS/Toast',
   component: Toast,
   args: {
-    title: 'Título',
-    content: 'Mensagem informativa',
+    title: 'Agendamento realizado',
+    content: 'Quarta-feira, 23 de Outubro às 16h',
   },
   argTypes: {
     position: {
@@ -69,9 +65,14 @@ const Template: Story<IToastProps> = ({ title, content, ...args }) => {
 
   return (
     <>
-      <button onClick={() => toast({ title, content })} style={buttonStyles}>
-        Criar Toast
-      </button>
+      <Button
+        variant={'primary'}
+        size={'sm'}
+        onClick={() => toast({ title, content })}
+        style={{ margin: 'auto' }}
+      >
+        Toast
+      </Button>
     </>
   )
 }

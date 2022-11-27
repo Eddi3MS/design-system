@@ -1,17 +1,14 @@
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-import { ComponentProps } from '@stitches/react'
 import { ReactNode } from 'react'
 import { keyframes, styled } from '../styles'
 import { getContrast } from 'polished'
+import { ComponentProps } from '../types/ComponentProps'
 
 function textColorContrast(color: string) {
   const colorToUse = getContrast(color, '#FFF') < 3.5 ? '#000' : '#FFF'
 
   return colorToUse
 }
-
-const StyledTooltip = styled(TooltipPrimitive.Root, {})
-const StyledTrigger = styled(TooltipPrimitive.Trigger, {})
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },
@@ -33,7 +30,7 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 })
 
-const StyledContent = styled(TooltipPrimitive.Content, {
+const StyledTooltipContent = styled(TooltipPrimitive.Content, {
   borderRadius: '$sm',
   padding: '.5rem 1rem',
   fontSize: 15,
@@ -56,59 +53,11 @@ const StyledContent = styled(TooltipPrimitive.Content, {
   },
 })
 
-const StyledArrow = styled(TooltipPrimitive.Arrow, {
+const StyledTooltipArrow = styled(TooltipPrimitive.Arrow, {
   fill: '$$bg',
 })
 
-interface ITooltipRootProps extends ComponentProps<typeof StyledTooltip> {
-  children: ReactNode | ReactNode[]
-}
-
-function TooltipRoot({ children, delayDuration }: ITooltipRootProps) {
-  return (
-    <TooltipPrimitive.Provider delayDuration={delayDuration}>
-      <StyledTooltip>{children}</StyledTooltip>
-    </TooltipPrimitive.Provider>
-  )
-}
-
-interface ITooltipTrigger extends ComponentProps<typeof StyledTrigger> {}
-
-function TooltipTrigger({ children }: ITooltipTrigger) {
-  return <StyledTrigger asChild>{children}</StyledTrigger>
-}
-
-interface ITooltipContentProps extends ComponentProps<typeof StyledContent> {
-  children: ReactNode | ReactNode[]
-  bg?: string
-}
-
-function TooltipContent({
-  children,
-  bg = '#000',
-  ...props
-}: ITooltipContentProps) {
-  return (
-    <TooltipPrimitive.Portal>
-      <StyledContent
-        {...props}
-        css={{
-          $$bg: `${bg}`,
-          $$color: textColorContrast(bg),
-        }}
-      >
-        {children}
-        <StyledArrow
-          css={{
-            $$bg: `${bg}`,
-          }}
-        />
-      </StyledContent>
-    </TooltipPrimitive.Portal>
-  )
-}
-
-export interface ITooltipProps extends ITooltipRootProps, ITooltipContentProps {
+export type ITooltipProps = ComponentProps<typeof TooltipPrimitive.Root> & {
   bg: string
   content: ReactNode | ReactNode[]
 }
@@ -116,13 +65,33 @@ export interface ITooltipProps extends ITooltipRootProps, ITooltipContentProps {
 export function Tooltip({
   children,
   content,
+  bg,
   delayDuration,
   ...rest
 }: ITooltipProps) {
   return (
-    <TooltipRoot delayDuration={delayDuration}>
-      <TooltipTrigger>{children}</TooltipTrigger>
-      <TooltipContent {...rest}>{content}</TooltipContent>
-    </TooltipRoot>
+    <TooltipPrimitive.Provider>
+      <TooltipPrimitive.Root delayDuration={delayDuration}>
+        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Portal>
+          <StyledTooltipContent
+            css={{
+              $$bg: `${bg}`,
+              $$color: textColorContrast(bg),
+            }}
+            {...rest}
+          >
+            {content}
+            <StyledTooltipArrow
+              css={{
+                $$bg: `${bg}`,
+              }}
+            />
+          </StyledTooltipContent>
+        </TooltipPrimitive.Portal>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.Provider>
   )
 }
+
+Tooltip.displayName = 'Tooltip'

@@ -1,5 +1,5 @@
-import { ComponentProps } from 'react'
 import { styled } from '../styles'
+import { ComponentProps } from '../types/ComponentProps'
 
 export const TextArea = styled('textarea', {
   backgroundColor: '$gray900',
