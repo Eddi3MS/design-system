@@ -1,0 +1,2 @@
+import{A as t}from"./index.66b9c28b.js";import"./index.493c0109.js";import"./iframe.0ad666b2.js";import"./index.6a1809af.js";import"./jsx-runtime.9de81e0d.js";const c={title:"Data display/Avatar",component:t,args:{src:"https://github.com/eddi3ms.png",alt:"Edson Marcelo"},argTypes:{src:{control:{type:"text"}}}},p={},e={args:{src:void 0}},m=["Primary","WithFallback"];export{p as Primary,e as WithFallback,m as __namedExportsOrder,c as default};
+//# sourceMappingURL=Avatar.stories.84f8efa7.js.map
