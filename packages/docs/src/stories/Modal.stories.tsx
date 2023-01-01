@@ -10,7 +10,7 @@ import {
 } from '@ems-ignite/react'
 
 export default {
-  title: 'Overlay/Modal/Modal',
+  title: 'POPUPS/Modal',
   component: ModalComponent,
   args: {
     open: false,

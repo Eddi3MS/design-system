@@ -15,3 +15,5 @@ export * from './components/Toast'
 export * from './context/ToastProvider'
 
 export * from './components/Checkbox'
+
+export * from './styles'
