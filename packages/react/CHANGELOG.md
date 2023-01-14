@@ -1,5 +1,11 @@
 # @ems-ignite/react
 
+## 5.0.0
+
+### Major Changes
+
+- corrections
+
 ## 4.1.0
 
 ### Minor Changes

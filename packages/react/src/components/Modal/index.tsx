@@ -7,10 +7,10 @@ import { Button } from '../Button'
 export type ModalProps = ComponentProps<typeof DialogPrimitive.Root> & {
   overlay?: boolean
   width: number
-  maintainDimensions: boolean
+  maintainDimensions?: boolean
   title: string
-  justifyButtons: 'flex-end' | 'center' | 'space-between' | 'flex-start'
-  footer: ReactNode
+  justifyButtons?: 'flex-end' | 'center' | 'space-between' | 'flex-start'
+  footer?: ReactNode
 }
 
 export function Modal({
