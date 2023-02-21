@@ -16,4 +16,6 @@ export * from './context/ToastProvider'
 
 export * from './components/Checkbox'
 
+export * from './components/Accordion'
+
 export * from './styles'

@@ -1,5 +1,17 @@
 # @ems-ignite/react
 
+## 7.0.0
+
+### Major Changes
+
+- accordion component
+
+## 6.0.0
+
+### Major Changes
+
+- update modal
+
 ## 5.0.0
 
 ### Major Changes

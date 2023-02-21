@@ -3,16 +3,16 @@ import { ComponentProps } from 'react'
 import { CheckboxContainer, CheckboxIndicator } from './styles'
 
 export interface CheckboxProps
-  extends ComponentProps<typeof CheckboxContainer> {}
+	extends ComponentProps<typeof CheckboxContainer> {}
 
 export function Checkbox(props: CheckboxProps) {
-  return (
-    <CheckboxContainer {...props} aria-label={'checkbox-button'}>
-      <CheckboxIndicator asChild>
-        <Check weight={'bold'} />
-      </CheckboxIndicator>
-    </CheckboxContainer>
-  )
+	return (
+		<CheckboxContainer {...props} aria-label={'checkbox-button'}>
+			<CheckboxIndicator asChild>
+				<Check weight={'bold'} />
+			</CheckboxIndicator>
+		</CheckboxContainer>
+	)
 }
 
 Checkbox.displayName = 'Checkbox'

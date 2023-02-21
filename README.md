@@ -11,6 +11,7 @@
 - [x] Multistep
 - [x] Toast
 - [x] Tooltip
+- [x] Accordion
 
 ## Rodando no seu local
 
@@ -31,5 +32,5 @@ npm i
 ```
 npm run dev
 ```
-realizará todos os builds e fará o watch dos packages, dando refresh em caso de mudanças
 
+realizará todos os builds e fará o watch dos packages, dando refresh em caso de mudanças
